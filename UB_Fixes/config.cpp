@@ -185,17 +185,6 @@ class cfgVehicles
 		displayName = "Royal Australian Navy Rolled Uniform";
 		author = "Tonnie";
 	};
-	class UB_Custom_PilotWhite : C_man_1 {
-		_generalMacro = "UB_Custom_PilotWhite";
-		editorPreview="\k_suits\data\UI_suits.paa";
-		scope = 2;
-		nakedUniform = "U_BasicBody";
-		uniformClass = "UB_Custom_Pilot_Uniform_White";
-		hiddenSelections[] = {"Camo"};
-		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\Uniforms\UB_Custom_PilotWhite_co.paa"};
-		displayName = "ASSASSIN8ED Uniform";
-		author = "Tonnie";
-	};
 	class UB_NRL_roosters : C_man_1 {
 		_generalMacro = "UB_NRL_roosters";
 		editorPreview="\A3\EditorPreviews_F\Data\CfgVehicles\C_man_polo_1_F.jpg";
@@ -295,6 +284,18 @@ class cfgVehicles
 		};
 	};		
     class B_Soldier_base_F;	
+	class UB_Custom_PilotWhite : B_Soldier_base_F {
+		_generalMacro = "UB_Custom_PilotWhite";
+		editorPreview="\k_suits\data\UI_suits.paa";
+		scope = 2;
+		nakedUniform = "U_BasicBody";
+		uniformClass = "UB_Custom_Pilot_Uniform_White";
+		model = "k_suits\data\suits.p3d";
+		hiddenSelections[] = {"Camo"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\Uniforms\UB_Custom_PilotWhite_co.paa"};
+		displayName = "ASSASSIN8ED Uniform";
+		author = "Tonnie";
+	};
 	class UB_Custom_Aladeenn_MAN : B_Soldier_base_F {
 		scope = 2;
 		displayName = "Khorne Bezerker Uniform";
@@ -1111,15 +1112,13 @@ class cfgWeapons
 			hiddenSelections[] = {"camo"};
 		};
 	};
-		
 		class UB_Custom_Pilot_Uniform_White : Uniform_Base {
 		scope = 2;
 		author="Tonnie";
 		displayName = "ASSASSIN8ED Uniform";
 		picture = "\k_suits\data\UI_suits.paa";
-		model = "\k_suits\data\suits.p3d";
+		model = "\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
 		class ItemInfo : UniformItem {
-			uniformModel = "-";
 			uniformClass = "UB_Custom_PilotWhite";
 			containerClass = "Supply60";
 			mass = 20;
