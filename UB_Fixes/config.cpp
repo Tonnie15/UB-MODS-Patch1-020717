@@ -465,8 +465,8 @@ class cfgWeapons
 			"\UB_SND_TEX\textures\skins\JamesAsif\Weapon\UB_Custom_ak12_mag_co.paa"
 		};
 	};
-    class hlc_rifle_bcmjack;
-    class tonnie_rifle_bcmblackjack: hlc_rifle_bcmjack
+    class hlc_rifle_bcmblackjack;
+    class tonnie_rifle_bcmblackjack: hlc_rifle_bcmblackjack
     {
         author="Tonnie";
         _generalMacro="tonnie_rifle_bcmblackjack_yo";	
@@ -491,7 +491,6 @@ class cfgWeapons
 			"\UB_SND_TEX\textures\skins\Tonnie\weapon\b5sopmod_co.paa"
         };
     };
-    class hlc_rifle_bcmblackjack;
     class hlc_rifle_bcmblackjack_paisley: hlc_rifle_bcmblackjack
     {
 	author="Sephiris, Agent95, Toadie, Stiglitz";	
