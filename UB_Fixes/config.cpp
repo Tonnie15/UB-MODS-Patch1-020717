@@ -131,7 +131,7 @@ class cfgVehicles
 	class UB_Custom_Tonnie_Carryall: B_Carryall_Base	{
 		scope = 2;
 		model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Tortila";
-        picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
+        	picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
 		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\JamesAsif\Uniform\UB_Custom_kryptek_Backpack_co.paa"};
 		displayName = "Kryptek Backpack";		
 		maximumLoad = 320;
@@ -308,7 +308,7 @@ class cfgVehicles
 	class UB_Custom_Tonnie_MAN : B_Soldier_base_F {
 		scope = 2;
 		displayName = "EVT Kryptek Uniform";
-        picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
+        	picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
 		author = "Tonnie";
 		model = "\A3\characters_F\BLUFOR\b_soldier_01.p3d";
 		uniformClass = "UB_Custom_Tonnie_UNIFORM";
@@ -469,8 +469,7 @@ class cfgWeapons
     class tonnie_rifle_bcmblackjack: hlc_rifle_bcmjack
     {
         author="Tonnie";
-        _generalMacro="tonnie_rifle_bcmblackjack_yo";
-		
+        _generalMacro="tonnie_rifle_bcmblackjack_yo";	
         displayName="Kryptek 'Tonnie' Custom .300 Blackout";
         picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
         hiddenSelections[]=
@@ -1003,7 +1002,7 @@ class cfgWeapons
 		author = Tonnie;
 		scope = 2;
 		displayName = "Kryptek Uniform";
-        picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
+        	picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
 		model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F";
 		class ItemInfo : UniformItem 
 		{
@@ -1018,7 +1017,7 @@ class cfgWeapons
 		scope = 2;
 		weaponPoolAvailable = 1;
 		displayName = "Kryptek Deez Nuts Beret";
-        picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
+        	picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
 		model = "\A3\characters_f_epb\BLUFOR\headgear_beret02";
 		hiddenSelections[] = {"camo"};
 		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\JamesAsif\Uniform\UB_Custom_deezNuts_Beret_co.paa"};
