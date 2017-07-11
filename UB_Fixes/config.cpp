@@ -37,7 +37,13 @@ class CfgPatches
 	    "UB_Custom_Aladeenn_Carryall",
 	    "UB_Custom_Sigma_Kitbag",
 	    "UB_Custom_Tonnie_Carryall",
-  	    "UB_Custom_Tonnie_MAN"
+  	    "UB_Custom_Tonnie_MAN",
+	    "UB_EMS_Head_Medic",
+	    "UB_EMS_Supervisor_Suit",
+	    "UB_EMS_Supervisor",
+	    "UB_EMS_Senior_Medic",
+	    "UB_EMS_Medic",
+	    "UB_EMS_Proby"
 	};
 	weapons[]={};
     };	
@@ -93,12 +99,13 @@ class CfgPatches
 			"UB_Custom_Vos_BERET",
 			"UB_Custom_Aladeenn_MAN",
 			"UB_Custom_Aladeenn_BERET",
-		    	"tonnie_rifle_bcmblackjack",
+		        "tonnie_rifle_bcmblackjack",
 			"evt_rifle_ak12GL",
 			"UB_Custom_EVT_MAN",
 			"UB_Custom_DezzNuts_BERET",
 			"UB_Custom_Tonnie_MAN",
-			"UB_Custom_Mp5"
+			"UB_Custom_Mp5",
+			"UB_Custom_sigma_auga3"
 		};
             	requiredAddons[]=
 		{
@@ -296,6 +303,30 @@ class cfgVehicles
 		displayName = "ASSASSIN8ED Uniform";
 		author = "Tonnie";
 	};
+	class UB_EMS_Head_Medic : B_Soldier_base_F {
+		_generalMacro = "UB_EMS_Head_Medic";
+		editorPreview="\k_suits\data\UI_suits.paa";
+		scope = 2;
+		nakedUniform = "U_BasicBody";
+		uniformClass = "UB_EMS_Head_Medic_suit";
+		model = "k_suits\data\suits.p3d";
+		hiddenSelections[] = {"Camo"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\ems\Uniforms\Head_Suit.paa"};
+		displayName = "UB EMS Head Supervisor Suit";
+		author = "Tonnie";
+	};
+	class UB_EMS_Supervisor_Suit : B_Soldier_base_F {
+		_generalMacro = "UB_EMS_Supervisor_Suit";
+		editorPreview="\k_suits\data\UI_suits.paa";
+		scope = 2;
+		nakedUniform = "U_BasicBody";
+		uniformClass = "UB_EMS_Supervisor_Suit_Custom";
+		model = "k_suits\data\suits.p3d";
+		hiddenSelections[] = {"Camo"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\ems\Uniforms\Super_Suit.paa"};
+		displayName = "UB EMS Supervisor Suit";
+		author = "Tonnie";
+	};
 	class UB_Custom_Aladeenn_MAN : B_Soldier_base_F {
 		scope = 2;
 		displayName = "Khorne Bezerker Uniform";
@@ -345,6 +376,51 @@ class cfgVehicles
 		uniformClass="U_B_CombatUniform_Sigma";
 		hiddenSelections[] = {"camo","insignia"};
 		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\Uniforms\tiger_cyre.paa",""};		
+	};	
+	class B_Helipilot_F;
+	class UB_EMS_Supervisor: B_Helipilot_F
+	{
+		author="Tonnie";
+		editorPreview="\A3\EditorPreviews_F\Data\CfgVehicles\B_Soldier_F.jpg";
+		_generalMacro="UB_EMS_Supervisor";
+		scope=2;
+		displayName="UB EMS Supervisor Uniform";
+		uniformClass="UB_EMS_Supervisor_overalls";
+		hiddenSelections[] = {"camo","insignia"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\ems\Uniforms\Super_Overalls.paa",""};		
+	};	
+	class UB_EMS_Senior_Medic: B_Helipilot_F
+	{
+		author="Tonnie";
+		editorPreview="\A3\EditorPreviews_F\Data\CfgVehicles\B_Soldier_F.jpg";
+		_generalMacro="UB_EMS_Senior_Medic";
+		scope=2;
+		displayName="UB EMS Senior Medic Uniform";
+		uniformClass="UB_EMS_Senior_Medic_overalls";
+		hiddenSelections[] = {"camo","insignia"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\ems\Uniforms\Senior_Overalls.paa",""};		
+	};	
+	class UB_EMS_Medic: B_Helipilot_F
+	{
+		author="Tonnie";
+		editorPreview="\A3\EditorPreviews_F\Data\CfgVehicles\B_Soldier_F.jpg";
+		_generalMacro="UB_EMS_Medic";
+		scope=2;
+		displayName="UB EMS Medic Uniform";
+		uniformClass="UB_EMS_Medic_overalls";
+		hiddenSelections[] = {"camo","insignia"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\ems\Uniforms\Medic_Overalls.paa",""};		
+	};	
+	class UB_EMS_Proby: B_Helipilot_F
+	{
+		author="Tonnie";
+		editorPreview="\A3\EditorPreviews_F\Data\CfgVehicles\B_Soldier_F.jpg";
+		_generalMacro="UB_EMS_Proby";
+		scope=2;
+		displayName="UB EMS Proby Uniform";
+		uniformClass="UB_EMS_Proby_overalls";
+		hiddenSelections[] = {"camo","insignia"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\ems\Uniforms\Proby_Overalls.paa",""};		
 	};	
 };
 class cfgWeapons
@@ -466,6 +542,23 @@ class cfgWeapons
 			"\UB_SND_TEX\textures\skins\JamesAsif\Weapon\UB_Custom_ak12_mag_co.paa"
 		};
 	};
+	class hlc_rifle_auga3;
+	class UB_Custom_sigma_auga3: hlc_rifle_auga3
+	{
+        author="Stiglitz";
+        displayName="Sigma Custom A3 5.56";
+        picture="\UB_SND_TEX\textures\skins\Sigma\sigmaa3_ui.paa";
+        hiddenSelections[]=
+        {
+			"Camo",
+			"Vert"
+        };
+        hiddenSelectionsTextures[]=
+        {
+			"\hlc_wp_aug\tex\Philibust_A3\Wangchung\map2_co.paa",
+			"\hlc_wp_aug\tex\redrogue_MVG\MVG_Diffuse-Green_co.paa"
+        };
+    };
     class hlc_rifle_bcmblackjack;
     class tonnie_rifle_bcmblackjack: hlc_rifle_bcmblackjack
     {
@@ -967,6 +1060,98 @@ class cfgWeapons
 			mass=40;
 		};
 	};
+	class UB_EMS_Supervisor_overalls: Uniform_Base
+	{
+		author="Tonnie";
+		scope=2;
+		displayName="UB EMS Supervisor Uniform";
+		picture="\A3\characters_f\data\ui\icon_U_B_CombatUniform_mcam_ca.paa";
+		model="\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+		hiddenSelections[]=
+		{
+			"camo"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\UB_SND_TEX\textures\ems\Uniforms\Super_Overalls.paa"
+		};
+		class ItemInfo: UniformItem
+		{
+			uniformModel="-";
+			uniformClass="UB_EMS_Supervisor";
+			containerClass="Supply60";
+			mass=40;
+		};
+	};
+	class UB_EMS_Senior_Medic_overalls: Uniform_Base
+	{
+		author="Tonnie";
+		scope=2;
+		displayName="UB EMS Senior Medic Uniform";
+		picture="\A3\characters_f\data\ui\icon_U_B_CombatUniform_mcam_ca.paa";
+		model="\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+		hiddenSelections[]=
+		{
+			"camo"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\UB_SND_TEX\textures\ems\Uniforms\Senior_Overalls.paa"
+		};
+		class ItemInfo: UniformItem
+		{
+			uniformModel="-";
+			uniformClass="UB_EMS_Senior_Medic";
+			containerClass="Supply60";
+			mass=40;
+		};
+	};
+	class UB_EMS_Medic_overalls: Uniform_Base
+	{
+		author="Tonnie";
+		scope=2;
+		displayName="UB EMS Medic Uniform";
+		picture="\A3\characters_f\data\ui\icon_U_B_CombatUniform_mcam_ca.paa";
+		model="\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+		hiddenSelections[]=
+		{
+			"camo"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\UB_SND_TEX\textures\ems\Uniforms\Medic_Overalls.paa"
+		};
+		class ItemInfo: UniformItem
+		{
+			uniformModel="-";
+			uniformClass="UB_EMS_Medic";
+			containerClass="Supply60";
+			mass=40;
+		};
+	};
+	class UB_EMS_Proby_overalls: Uniform_Base
+	{
+		author="Tonnie";
+		scope=2;
+		displayName="UB EMS Proby Uniform";
+		picture="\A3\characters_f\data\ui\icon_U_B_CombatUniform_mcam_ca.paa";
+		model="\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+		hiddenSelections[]=
+		{
+			"camo"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\UB_SND_TEX\textures\ems\Uniforms\Proby_Overalls.paa"
+		};
+		class ItemInfo: UniformItem
+		{
+			uniformModel="-";
+			uniformClass="UB_EMS_Proby";
+			containerClass="Supply60";
+			mass=40;
+		};
+	};
 	class UB_Custom_Aladeenn_UNIFORM : Uniform_Base 
 	{
 		author = Tonnie;
@@ -1120,6 +1305,30 @@ class cfgWeapons
 		model = "\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
 		class ItemInfo : UniformItem {
 			uniformClass = "UB_Custom_PilotWhite";
+			containerClass = "Supply60";
+			mass = 20;
+		};
+	};
+		class UB_EMS_Head_Medic_suit : Uniform_Base {
+		scope = 2;
+		author="Tonnie";
+		displayName = "UB EMS Head Supervisor Suit";
+		picture = "\k_suits\data\UI_suits.paa";
+		model = "\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
+		class ItemInfo : UniformItem {
+			uniformClass = "UB_EMS_Head_Medic";
+			containerClass = "Supply60";
+			mass = 20;
+		};
+	};
+		class UB_EMS_Supervisor_Suit_Custom : Uniform_Base {
+		scope = 2;
+		author="Tonnie";
+		displayName = "UB EMS Supervisor Suit";
+		picture = "\k_suits\data\UI_suits.paa";
+		model = "\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
+		class ItemInfo : UniformItem {
+			uniformClass = "UB_EMS_Supervisor_Suit";
 			containerClass = "Supply60";
 			mass = 20;
 		};
