@@ -555,8 +555,8 @@ class cfgWeapons
         };
         hiddenSelectionsTextures[]=
         {
-			"\hlc_wp_aug\tex\Philibust_A3\Wangchung\map2_co.paa",
-			"\hlc_wp_aug\tex\redrogue_MVG\MVG_Diffuse-Green_co.paa"
+			"\UB_SND_TEX\textures\skins\Sigma\UB_Custom_SIGMAa3.paa",
+			"\hlc_wp_aug\tex\redrogue_MVG\MVG_Diffuse-Black_co.paa"
         };
     };
     class hlc_rifle_bcmblackjack;
