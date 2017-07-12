@@ -35,7 +35,15 @@ class CfgPatches
 	    "UB_Custom_Aladeenn_MAN",
 	    "UB_Custom_Vos_Carryall",
 	    "UB_Custom_Aladeenn_Carryall",
-	    "UB_Custom_Sigma_Kitbag"
+	    "UB_Custom_Sigma_Kitbag",
+	    "UB_Custom_Tonnie_Carryall",
+  	    "UB_Custom_Tonnie_MAN",
+	    "UB_EMS_Head_Medic",
+	    "UB_EMS_Supervisor_Suit",
+	    "UB_EMS_Supervisor",
+	    "UB_EMS_Senior_Medic",
+	    "UB_EMS_Medic",
+	    "UB_EMS_Proby"
 	};
 	weapons[]={};
     };	
@@ -86,11 +94,18 @@ class CfgPatches
 			"UB_Custom_RAN_SS_Uniform",
 			"V_PlateCarrierIAGL_dgtl_Vos",
 			"V_PlateCarrierIAGL_dgtl_Aladeenn",
+			"V_PlateCarrierIAGL_dgtl_Tonnie",
 			"UB_Custom_VOS_MAN",
 			"UB_Custom_Vos_BERET",
 			"UB_Custom_Aladeenn_MAN",
 			"UB_Custom_Aladeenn_BERET",
-		        "tonnie_rifle_bcmblackjack"
+		        "tonnie_rifle_bcmblackjack",
+			"evt_rifle_ak12GL",
+			"UB_Custom_EVT_MAN",
+			"UB_Custom_DezzNuts_BERET",
+			"UB_Custom_Tonnie_MAN",
+			"UB_Custom_Mp5",
+			"UB_Custom_sigma_auga3"
 		};
             	requiredAddons[]=
 		{
@@ -120,6 +135,15 @@ class cfgVehicles
 	class C_man_1: Civilian_F {};	
 	class B_Carryall_Base;
    	class B_Kitbag_Base;
+	class UB_Custom_Tonnie_Carryall: B_Carryall_Base	{
+		scope = 2;
+		model = "\A3\weapons_f\Ammoboxes\bags\Backpack_Tortila";
+        	picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\JamesAsif\Uniform\UB_Custom_kryptek_Backpack_co.paa"};
+		displayName = "Kryptek Backpack";		
+		maximumLoad = 320;
+		mass = 60;
+	};
 	class UB_Custom_Sigma_Kitbag: B_Kitbag_Base	{
 		scope = 2;
 		picture = "\A3\Weapons_F\Ammoboxes\Bags\data\UI\icon_b_c_tortila_blk.paa";
@@ -166,17 +190,6 @@ class cfgVehicles
 		hiddenSelections[] = {"Camo","Insignia"};
 		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\Uniforms\UB_Custom_RAN_Uniform_co.paa"};
 		displayName = "Royal Australian Navy Rolled Uniform";
-		author = "Tonnie";
-	};
-	class UB_Custom_PilotWhite : C_man_1 {
-		_generalMacro = "UB_Custom_PilotWhite";
-		editorPreview="\k_suits\data\UI_suits.paa";
-		scope = 2;
-		nakedUniform = "U_BasicBody";
-		uniformClass = "UB_Custom_Pilot_Uniform_White";
-		hiddenSelections[] = {"Camo"};
-		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\Uniforms\UB_Custom_PilotWhite_co.paa"};
-		displayName = "ASSASSIN8ED Uniform";
 		author = "Tonnie";
 	};
 	class UB_NRL_roosters : C_man_1 {
@@ -278,6 +291,42 @@ class cfgVehicles
 		};
 	};		
     class B_Soldier_base_F;	
+	class UB_Custom_PilotWhite : B_Soldier_base_F {
+		_generalMacro = "UB_Custom_PilotWhite";
+		editorPreview="\k_suits\data\UI_suits.paa";
+		scope = 2;
+		nakedUniform = "U_BasicBody";
+		uniformClass = "UB_Custom_Pilot_Uniform_White";
+		model = "k_suits\data\suits.p3d";
+		hiddenSelections[] = {"Camo"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\Uniforms\UB_Custom_PilotWhite_co.paa"};
+		displayName = "ASSASSIN8ED Uniform";
+		author = "Tonnie";
+	};
+	class UB_EMS_Head_Medic : B_Soldier_base_F {
+		_generalMacro = "UB_EMS_Head_Medic";
+		editorPreview="\k_suits\data\UI_suits.paa";
+		scope = 2;
+		nakedUniform = "U_BasicBody";
+		uniformClass = "UB_EMS_Head_Medic_suit";
+		model = "k_suits\data\suits.p3d";
+		hiddenSelections[] = {"Camo"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\ems\Uniforms\Head_Suit.paa"};
+		displayName = "UB EMS Head Supervisor Suit";
+		author = "Tonnie";
+	};
+	class UB_EMS_Supervisor_Suit : B_Soldier_base_F {
+		_generalMacro = "UB_EMS_Supervisor_Suit";
+		editorPreview="\k_suits\data\UI_suits.paa";
+		scope = 2;
+		nakedUniform = "U_BasicBody";
+		uniformClass = "UB_EMS_Supervisor_Suit_Custom";
+		model = "k_suits\data\suits.p3d";
+		hiddenSelections[] = {"Camo"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\ems\Uniforms\Super_Suit.paa"};
+		displayName = "UB EMS Supervisor Suit";
+		author = "Tonnie";
+	};
 	class UB_Custom_Aladeenn_MAN : B_Soldier_base_F {
 		scope = 2;
 		displayName = "Khorne Bezerker Uniform";
@@ -286,7 +335,17 @@ class cfgVehicles
 		model = "\A3\characters_F\BLUFOR\b_soldier_01.p3d";
 		uniformClass = "UB_Custom_Aladeenn_UNIFORM";
 		hiddenSelections[] = {"camo","insignia"};
-		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\Aladeen\UB_Custom_Aladeenn_g3_co.paa"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\Aladeen\UB_Custom_Aladeenn_g3_co.paa",""};
+	};
+	class UB_Custom_Tonnie_MAN : B_Soldier_base_F {
+		scope = 2;
+		displayName = "EVT Kryptek Uniform";
+        	picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
+		author = "Tonnie";
+		model = "\A3\characters_F\BLUFOR\b_soldier_01.p3d";
+		uniformClass = "UB_Custom_Tonnie_UNIFORM";
+		hiddenSelections[] = {"camo","insignia"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\JamesAsif\Uniform\UB_Custom_kryptek_uniform_co.paa"};
 	};
 	class UB_Custom_VOS_MAN : B_Soldier_base_F {
 		scope = 2;
@@ -296,7 +355,7 @@ class cfgVehicles
 		model = "\A3\characters_F\BLUFOR\b_soldier_01.p3d";
 		uniformClass = "UB_Custom_Vos_UNIFORM";
 		hiddenSelections[] = {"camo","insignia"};
-		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\Custom\UB_Custom_Vos_g3uniform_co.paa"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\Custom\UB_Custom_Vos_g3uniform_co.paa",""};
 	};
 	class B_AOR2_F_AL: B_Soldier_base_F
 	{
@@ -317,6 +376,51 @@ class cfgVehicles
 		uniformClass="U_B_CombatUniform_Sigma";
 		hiddenSelections[] = {"camo","insignia"};
 		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\Uniforms\tiger_cyre.paa",""};		
+	};	
+	class B_Helipilot_F;
+	class UB_EMS_Supervisor: B_Helipilot_F
+	{
+		author="Tonnie";
+		editorPreview="\A3\EditorPreviews_F\Data\CfgVehicles\B_Soldier_F.jpg";
+		_generalMacro="UB_EMS_Supervisor";
+		scope=2;
+		displayName="UB EMS Supervisor Uniform";
+		uniformClass="UB_EMS_Supervisor_overalls";
+		hiddenSelections[] = {"camo","insignia"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\ems\Uniforms\Super_Overalls.paa",""};		
+	};	
+	class UB_EMS_Senior_Medic: B_Helipilot_F
+	{
+		author="Tonnie";
+		editorPreview="\A3\EditorPreviews_F\Data\CfgVehicles\B_Soldier_F.jpg";
+		_generalMacro="UB_EMS_Senior_Medic";
+		scope=2;
+		displayName="UB EMS Senior Medic Uniform";
+		uniformClass="UB_EMS_Senior_Medic_overalls";
+		hiddenSelections[] = {"camo","insignia"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\ems\Uniforms\Senior_Overalls.paa",""};		
+	};	
+	class UB_EMS_Medic: B_Helipilot_F
+	{
+		author="Tonnie";
+		editorPreview="\A3\EditorPreviews_F\Data\CfgVehicles\B_Soldier_F.jpg";
+		_generalMacro="UB_EMS_Medic";
+		scope=2;
+		displayName="UB EMS Medic Uniform";
+		uniformClass="UB_EMS_Medic_overalls";
+		hiddenSelections[] = {"camo","insignia"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\ems\Uniforms\Medic_Overalls.paa",""};		
+	};	
+	class UB_EMS_Proby: B_Helipilot_F
+	{
+		author="Tonnie";
+		editorPreview="\A3\EditorPreviews_F\Data\CfgVehicles\B_Soldier_F.jpg";
+		_generalMacro="UB_EMS_Proby";
+		scope=2;
+		displayName="UB EMS Proby Uniform";
+		uniformClass="UB_EMS_Proby_overalls";
+		hiddenSelections[] = {"camo","insignia"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\ems\Uniforms\Proby_Overalls.paa",""};		
 	};	
 };
 class cfgWeapons
@@ -398,7 +502,6 @@ class cfgWeapons
     {
         author="$STR_A3_Bohemia_Interactive";
         _generalMacro="srifle_DMR_03_khaki_F";
-		
         displayName="Bonez DMR";
         picture="\A3\Weapons_F_Mark\LongRangeRifles\DMR_03\Data\UI\gear_DMR_03_khaki_X_CA.paa";
         hiddenSelections[]=
@@ -412,12 +515,55 @@ class cfgWeapons
             "\UB_SND_TEX\textures\skins\mk1\UB_Custom_DMR_Bonez_02.paa"
         };
     };
-    class hlc_rifle_bcmjack;
-    class tonnie_rifle_bcmblackjack: hlc_rifle_bcmjack
+	class hlc_rifle_ak12GL;
+	class evt_rifle_ak12GL: hlc_rifle_ak12GL
+	{
+        author="Tonnie";
+        _generalMacro="tonnie_yo";
+        displayName="Kryptek 'EVT' AK12(GL)";
+		model="\hlc_wp_ak\mesh\ak12\ak12GP.p3d";
+        picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
+		hiddenSelections[]=
+		{
+			"Main",
+			"Foregrip",
+			"Bracket",
+			"Bipod",
+			"GP30",
+			"Magazine"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\UB_SND_TEX\textures\skins\JamesAsif\Weapon\UB_Custom_ak12_m_co.paa",
+			"\UB_SND_TEX\textures\skins\JamesAsif\Weapon\UB_Custom_ak12_upper_co",
+			"\UB_SND_TEX\textures\skins\JamesAsif\Weapon\UB_Custom_rail_co.paa",
+			"\UB_SND_TEX\textures\skins\JamesAsif\Weapon\UB_Custom_aks-74u_co.paa",
+			"\UB_SND_TEX\textures\skins\JamesAsif\Weapon\UB_Custom_gp30_co.paa",
+			"\UB_SND_TEX\textures\skins\JamesAsif\Weapon\UB_Custom_ak12_mag_co.paa"
+		};
+	};
+	class hlc_rifle_auga3;
+	class UB_Custom_sigma_auga3: hlc_rifle_auga3
+	{
+        author="Stiglitz";
+        displayName="Sigma Custom A3 5.56";
+        picture="\UB_SND_TEX\textures\skins\Sigma\sigmaa3_ui.paa";
+        hiddenSelections[]=
+        {
+			"Camo",
+			"Vert"
+        };
+        hiddenSelectionsTextures[]=
+        {
+			"\UB_SND_TEX\textures\skins\Sigma\UB_Custom_SIGMAa3.paa",
+			"\hlc_wp_aug\tex\redrogue_MVG\MVG_Diffuse-Black_co.paa"
+        };
+    };
+    class hlc_rifle_bcmblackjack;
+    class tonnie_rifle_bcmblackjack: hlc_rifle_bcmblackjack
     {
         author="Tonnie";
-        _generalMacro="tonnie_rifle_bcmblackjack_yo";
-		
+        _generalMacro="tonnie_rifle_bcmblackjack_yo";	
         displayName="Kryptek 'Tonnie' Custom .300 Blackout";
         picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
         hiddenSelections[]=
@@ -439,7 +585,6 @@ class cfgWeapons
 			"\UB_SND_TEX\textures\skins\Tonnie\weapon\b5sopmod_co.paa"
         };
     };
-    class hlc_rifle_bcmblackjack;
     class hlc_rifle_bcmblackjack_paisley: hlc_rifle_bcmblackjack
     {
 	author="Sephiris, Agent95, Toadie, Stiglitz";	
@@ -915,6 +1060,98 @@ class cfgWeapons
 			mass=40;
 		};
 	};
+	class UB_EMS_Supervisor_overalls: Uniform_Base
+	{
+		author="Tonnie";
+		scope=2;
+		displayName="UB EMS Supervisor Uniform";
+		picture="\A3\characters_f\data\ui\icon_U_B_CombatUniform_mcam_ca.paa";
+		model="\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+		hiddenSelections[]=
+		{
+			"camo"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\UB_SND_TEX\textures\ems\Uniforms\Super_Overalls.paa"
+		};
+		class ItemInfo: UniformItem
+		{
+			uniformModel="-";
+			uniformClass="UB_EMS_Supervisor";
+			containerClass="Supply60";
+			mass=40;
+		};
+	};
+	class UB_EMS_Senior_Medic_overalls: Uniform_Base
+	{
+		author="Tonnie";
+		scope=2;
+		displayName="UB EMS Senior Medic Uniform";
+		picture="\A3\characters_f\data\ui\icon_U_B_CombatUniform_mcam_ca.paa";
+		model="\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+		hiddenSelections[]=
+		{
+			"camo"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\UB_SND_TEX\textures\ems\Uniforms\Senior_Overalls.paa"
+		};
+		class ItemInfo: UniformItem
+		{
+			uniformModel="-";
+			uniformClass="UB_EMS_Senior_Medic";
+			containerClass="Supply60";
+			mass=40;
+		};
+	};
+	class UB_EMS_Medic_overalls: Uniform_Base
+	{
+		author="Tonnie";
+		scope=2;
+		displayName="UB EMS Medic Uniform";
+		picture="\A3\characters_f\data\ui\icon_U_B_CombatUniform_mcam_ca.paa";
+		model="\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+		hiddenSelections[]=
+		{
+			"camo"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\UB_SND_TEX\textures\ems\Uniforms\Medic_Overalls.paa"
+		};
+		class ItemInfo: UniformItem
+		{
+			uniformModel="-";
+			uniformClass="UB_EMS_Medic";
+			containerClass="Supply60";
+			mass=40;
+		};
+	};
+	class UB_EMS_Proby_overalls: Uniform_Base
+	{
+		author="Tonnie";
+		scope=2;
+		displayName="UB EMS Proby Uniform";
+		picture="\A3\characters_f\data\ui\icon_U_B_CombatUniform_mcam_ca.paa";
+		model="\A3\Characters_F\Common\Suitpacks\suitpack_universal_F.p3d";
+		hiddenSelections[]=
+		{
+			"camo"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"\UB_SND_TEX\textures\ems\Uniforms\Proby_Overalls.paa"
+		};
+		class ItemInfo: UniformItem
+		{
+			uniformModel="-";
+			uniformClass="UB_EMS_Proby";
+			containerClass="Supply60";
+			mass=40;
+		};
+	};
 	class UB_Custom_Aladeenn_UNIFORM : Uniform_Base 
 	{
 		author = Tonnie;
@@ -943,6 +1180,40 @@ class cfgWeapons
 			uniformClass = "UB_Custom_VOS_MAN";
 			containerClass = "Supply60";
 			mass = 2;
+		};
+	};
+	class UB_Custom_Tonnie_UNIFORM : Uniform_Base 
+	{
+		author = Tonnie;
+		scope = 2;
+		displayName = "Kryptek Uniform";
+        	picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
+		model = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F";
+		class ItemInfo : UniformItem 
+		{
+			uniformModel = "\A3\Characters_F\Common\Suitpacks\suitpack_universal_F";
+			uniformClass = "UB_Custom_Tonnie_MAN";
+			containerClass = "Supply60";
+			mass = 2;
+		};
+	};
+	class UB_Custom_DezzNuts_BERET : ItemCore {
+		author = "Tonnie";
+		scope = 2;
+		weaponPoolAvailable = 1;
+		displayName = "Kryptek Deez Nuts Beret";
+        	picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
+		model = "\A3\characters_f_epb\BLUFOR\headgear_beret02";
+		hiddenSelections[] = {"camo"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\JamesAsif\Uniform\UB_Custom_deezNuts_Beret_co.paa"};
+		class ItemInfo : HeadgearItem 
+                {
+			mass = 6;
+			uniformModel = "\A3\characters_f_epb\BLUFOR\headgear_beret02";
+			modelSides[] = {3, 1};
+			armor = 0;
+			passThrough = 1;
+			hiddenSelections[] = {"camo"};
 		};
 	};
 	class UB_Custom_Aladeenn_BERET : ItemCore {
@@ -1026,16 +1297,38 @@ class cfgWeapons
 			hiddenSelections[] = {"camo"};
 		};
 	};
-		
 		class UB_Custom_Pilot_Uniform_White : Uniform_Base {
 		scope = 2;
 		author="Tonnie";
 		displayName = "ASSASSIN8ED Uniform";
 		picture = "\k_suits\data\UI_suits.paa";
-		model = "\k_suits\data\suits.p3d";
+		model = "\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
 		class ItemInfo : UniformItem {
-			uniformModel = "-";
 			uniformClass = "UB_Custom_PilotWhite";
+			containerClass = "Supply60";
+			mass = 20;
+		};
+	};
+		class UB_EMS_Head_Medic_suit : Uniform_Base {
+		scope = 2;
+		author="Tonnie";
+		displayName = "UB EMS Head Supervisor Suit";
+		picture = "\k_suits\data\UI_suits.paa";
+		model = "\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
+		class ItemInfo : UniformItem {
+			uniformClass = "UB_EMS_Head_Medic";
+			containerClass = "Supply60";
+			mass = 20;
+		};
+	};
+		class UB_EMS_Supervisor_Suit_Custom : Uniform_Base {
+		scope = 2;
+		author="Tonnie";
+		displayName = "UB EMS Supervisor Suit";
+		picture = "\k_suits\data\UI_suits.paa";
+		model = "\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
+		class ItemInfo : UniformItem {
+			uniformClass = "UB_EMS_Supervisor_Suit";
 			containerClass = "Supply60";
 			mass = 20;
 		};
@@ -1350,6 +1643,31 @@ class cfgWeapons
 		};
 		HLC_CurrentBarrel="hlc_barrel_standard";
 	};	
+    class hlc_smg_mp5a2;
+	class UB_Custom_MP5 : hlc_smg_mp5a2
+	{
+        author="Tonnie";
+        displayName="Anthony Healy's [UNSC] MP5A3";
+		model="\hlc_wp_Mp5\mesh\mp5a2\mp5.p3d";
+        hiddenSelections[]=
+        {
+			"Reciever",
+			"FCG",
+			"Stock",
+			"Foregrip",
+			"Rail",
+			"Magazine"
+        };
+        hiddenSelectionsTextures[]=
+        {
+            "\UB_SND_TEX\textures\skins\Healy\Weapon\UB_Custom_Anthony_receiver_co.paa",
+			"\UB_SND_TEX\textures\skins\Healy\Weapon\UB_Custom_Anthony_Sef_co.paa",
+            "\UB_SND_TEX\textures\skins\Healy\Weapon\UB_Custom_Anthony_fullstock_co.paa",
+			"\UB_SND_TEX\textures\skins\Healy\Weapon\UB_Custom_Anthony_foregrip_co.paa",
+			"\UB_SND_TEX\textures\skins\Healy\Weapon\UB_Custom_Anthony_Rail_co.paa",
+			"\UB_SND_TEX\textures\skins\Healy\Weapon\UB_Custom_Anthony_Mag_co.paa"
+        };
+    };
 	class Vest_NoCamo_Base: ItemCore {};
 	class V_PlateCarrierIA1_dgtl: Vest_NoCamo_Base {};
 	class V_PlateCarrierIA2_dgtl: V_PlateCarrierIA1_dgtl {};
@@ -1546,6 +1864,71 @@ class cfgWeapons
 			};
 		};
 	};
+	class V_PlateCarrierIAGL_dgtl_Tonnie: V_PlateCarrierIA2_dgtl	{
+		author = "$STR_A3_Bohemia_Interactive";
+		_generalMacro = "V_PlateCarrierIAGL_dgtl11";
+		scope = 2;
+		scopecurator = 2;
+		scopearsnel = 2;
+		displayName = "Kryptek Combat Vest";
+        picture="\UB_SND_TEX\textures\skins\Tonnie\tonnie_ui.paa";
+		model = "\A3\Characters_F_Beta\INDEP\equip_ia_ga_carrier_gl_rig.p3d";
+		DLC = "Mark";
+		descriptionShort = "$STR_A3_SP_E";
+		hiddenSelections[] = {"camo1","camo2"};
+		hiddenSelectionsTextures[] = {"\UB_SND_TEX\textures\skins\JamesAsif\Uniform\UB_Custom_kryptek_vest_01_co.paa","\UB_SND_TEX\textures\skins\JamesAsif\Uniform\UB_Custom_kryptek_vest_02_co.paa"};
+		class ItemInfo: VestItem
+		{
+			uniformModel = "\A3\Characters_F_beta\INDEP\equip_ia_ga_carrier_gl_rig.p3d";
+			containerClass = "Supply120";
+			mass = 80;
+			hiddenSelections[] = {"camo1","camo2"};
+			class HitpointsProtectionInfo
+			{
+				class Neck
+				{
+					hitpointName = "HitNeck";
+					armor = 8;
+					passThrough = 0.5;
+				};
+				class Arms
+				{
+					hitpointName = "HitArms";
+					armor = 8;
+					passThrough = 0.5;
+				};
+				class Chest
+				{
+					hitpointName = "HitChest";
+					armor = 78;
+					passThrough = 0.6;
+				};
+				class Diaphragm
+				{
+					hitpointName = "HitDiaphragm";
+					armor = 78;
+					passThrough = 0.6;
+				};
+				class Abdomen
+				{
+					hitpointName = "HitAbdomen";
+					armor = 16;
+					passThrough = 0.3;
+				};
+				class Pelvis
+				{
+					hitpointName = "HitPelvis";
+					armor = 16;
+					passThrough = 0.3;
+				};
+				class Body
+				{
+					hitpointName = "HitBody";
+					passThrough = 0.6;
+				};
+			};
+		};
+	};
 	class V_PlateCarrierIAGL_dgtl_aladeen: V_PlateCarrierIA2_dgtl
 	{
 		author = "$STR_A3_Bohemia_Interactive";
@@ -1611,7 +1994,6 @@ class cfgWeapons
 		};
 	};
 };
-
 class cfgMods
 {
 	author="76561198116014678";
